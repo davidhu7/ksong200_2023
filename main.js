@@ -28,7 +28,23 @@ function main(){
     translate(args);
 }
 
+// This is the translate function. It goes through the command line array and for each number, it finds the 
+// phonetic equivalence for the integer and adds it to the final string to be outputted
 function translate(arg){
-
+    let out = " ";
+    for(let i = 0; i < arg.length; i++){
+        let num = arg[i];
+        let st = num.toString();
+        for(let j = 0; j < st.length; j++){
+            let cha = st.charAt(j);
+            let test = convert[cha];
+            out += test; 
+            test = " ";
+        }
+        if(i != arg.length-1){
+            out += ",";
+        }
+    }
+    process.stdout.write(out);
 }
 
